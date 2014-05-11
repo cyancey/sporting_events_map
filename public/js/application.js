@@ -1,7 +1,44 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+window.onload = function() {
+  initialize()
+}
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+function initialize() {
+  // var mapOptions = {
+  //   center: new google.maps.LatLng(-34.397, 150.644),
+  //   zoom: 8
+  // };
+  // var map = new google.maps.Map(document.getElementById("map-canvas"),
+  //     mapOptions);
+  map = new MapView()
+
+}
+// google.maps.event.addDomListener(window, 'load', initialize);
+
+function latLngMapObj(latLngObj) {
+  var latLng = new google.maps.LatLng(latLngObj.lat, latLngObj.lng)
+}
+
+function mapMarker() {
+
+}
+
+//For testing, should do client side geocoding when searching for events
+function searchLocationServerSide(locationString) {
+  var ajaxRequest = $.ajax({
+    url: '/location',
+    type: 'GET',
+    data: {location: locationString}
+  })
+
+  ajaxRequest.done(locationData)
+}
+
+function locationData(response) {
+  var data = JSON.parse(response)
+  console.log(data)
+  y = data
+}
+
+function mapBoundries(googleMapObj) {
+  googleMapObj.getBounds().getSouthWest()
+}

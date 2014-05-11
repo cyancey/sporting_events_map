@@ -1,5 +1,6 @@
 source :rubygems
 
+ruby '2.0.0'
 # PostgreSQL driver
 gem 'pg'
 
@@ -18,6 +19,7 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'dotenv'
+gem 'httparty'
 
 group :test do
   gem 'faker'
