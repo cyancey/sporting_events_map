@@ -1,7 +1,7 @@
 function MapView() {
   var mapOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
-    zoom: 8
+    center: new google.maps.LatLng(37.09024, -95.712891),
+    zoom: 4
   };
 
   this.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -26,8 +26,20 @@ MapView.prototype = {
             }
   },
 
-  placeMarker: function(latLngObj) {
+  mapMarker: function(latLngObj) {
+    return new google.maps.Marker({
+    position: this.latLngMapObj(latLngObj),
+    title:"Hello World!"
+    });
+  },
 
+  latLngMapObj: function(latLngObj) {
+  return new google.maps.LatLng(latLngObj.lat, latLngObj.lng)
+  },
+
+  placeMarker: function(mapMarker) {
+    mapMarker.setMap(this.map)
   }
+
 
 }

@@ -14,11 +14,11 @@ function initialize() {
 }
 // google.maps.event.addDomListener(window, 'load', initialize);
 
-function latLngMapObj(latLngObj) {
-  var latLng = new google.maps.LatLng(latLngObj.lat, latLngObj.lng)
-}
+// function latLngMapObj(latLngObj) {
+//   return new google.maps.LatLng(latLngObj.lat, latLngObj.lng)
+// }
 
-function mapMarker() {
+function mapMarker(latLngObj) {
 
 }
 
@@ -37,8 +37,4 @@ function locationData(response) {
   var data = JSON.parse(response)
   console.log(data)
   y = data
-}
-
-function mapBoundries(googleMapObj) {
-  googleMapObj.getBounds().getSouthWest()
 }
